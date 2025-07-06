@@ -1,0 +1,24 @@
+/* src/components/MazeUI.css */
+.maze-container {
+  display: grid;
+  grid-template-columns: repeat(5, 50px); /* Change 5 to any number per row */
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.maze-block {
+  width: 50px;
+  height: 50px;
+  border: 2px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-weight: bold;
+}
+
+.maze-block.active {
+  background-color: green;
+  color: white;
+}

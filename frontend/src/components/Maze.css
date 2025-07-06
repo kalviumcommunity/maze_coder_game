@@ -1,0 +1,40 @@
+/* Maze.css */
+
+.maze-container-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.maze-container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.maze-block {
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  background-color: lightgray;
+  border-radius: 4px;
+}
+
+.maze-block.correct {
+  background-color: lightgreen;
+}
+
+.maze-block.incorrect {
+  background-color: tomato;
+}
+
+.completed-text {
+  font-size: 1.5rem;
+  color: green;
+  margin-bottom: 10px;
+}
+
+.maze-summary p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
