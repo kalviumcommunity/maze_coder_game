@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import MazeQuiz from './components/MazeQuiz';
+import Maze from './components/Maze';
+import { Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import Login from "./pages/Login";
+import Signup from './pages/Signup';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [answerResults, setAnswerResults] = useState([]);
+  const [totalQuestions, setTotalQuestions] = useState(0);
+
+  const handleQuizAnswer = (isCorrect) => {
+    setAnswerResults(prev => [...prev, isCorrect]);
+  };
+
+  const resetAnswers = () => {
+    setAnswerResults([]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="main-app">
+      <h1>🧩 Maze Coder 🧩</h1>
+
+      <div className="nav-links">
+        <Link to="/login" className="btn">Login</Link>
+        <Link to="/signup" className="btn">Signup</Link>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      <Maze answerResults={answerResults} total={totalQuestions} />
+      <MazeQuiz
+        onAnswer={handleQuizAnswer}
+        setTotalQuestions={setTotalQuestions}
+        onResetAnswers={resetAnswers}
+      />
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
