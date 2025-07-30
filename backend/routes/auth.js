@@ -27,6 +27,11 @@ router.post('/login', async (req, res) => {
   const user = await User.findOne({ email });
   if (!user || !(await bcrypt.compare(password, user.password)))
     return res.status(401).json({ message: 'Invalid credentials ,' });
+  
+  //Implemented jwt in application
+  //  const token = jwt.sign({ id: user._id, name: user.name }, JWT_SECRET, { expiresIn: '1h' });
+  // res.json({ token, name: user.name });
+  //   console.log("Login successfully")
 
   const token = jwt.sign({ id: user._id, name: user.name }, JWT_SECRET, { expiresIn: '1h' });
   res.json({ token, name: user.name });
