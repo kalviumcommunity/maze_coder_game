@@ -4,6 +4,7 @@ Project Name: MazeCoder
 Domain/Interest Area: Game-based Learning + Web Development.
 
 Frontend Deployed link - https://mazecodercapstone.netlify.app/
+Backend Deployed Link -  https://maze-coder-game-1.onrender.com/
 
 Description:
 MazeCoder is an interactive quiz-based maze game that helps learners improve their coding knowledge by answering multiple-choice questions. The quiz is divided into levels—Easy, Medium, and Hard. For every correct answer, the player progresses one step forward in the maze. Once all questions are answered, the maze either celebrates success (if all are correct) or shows completion with the score.
